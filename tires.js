@@ -55,3 +55,9 @@ function getCircumferenceForTireSize(tireSize) {
   var diameter = getDiameterForTireSize(tireSize);
   return Math.PI * diameter;
 }
+
+function _formatInches(inches) {
+  inches = inches.toString();
+  capped = (inches.indexOf(".") >= 0) ? inches.substr(0, inches.indexOf(".") + 3) : inches;
+  return capped + " in.";
+}

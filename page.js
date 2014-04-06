@@ -22,9 +22,9 @@ function calculateAndDisplay() {
 function display(oldV, newV) {
   var templateSource =
   "<h2>Diameter (inches)</h2>" +
-  "<p>{{diameter}}</p>" +
+  "<p>{{formatInches diameter}}</p>" +
   "<h2>Circumference (inches)</h2>" +
-  "<p>{{circumference}}</p>";
+  "<p>{{formatInches circumference}}</p>";
   template = Handlebars.compile(templateSource);
 
   $(".results").empty();
@@ -38,6 +38,8 @@ function _getValues(tireSize) {
     circumference: getCircumferenceForTireSize(tireSize)
   };
 }
+
+Handlebars.registerHelper('formatInches', _formatInches);
 
 $("#goButton").on('click', function(e) {
   calculateAndDisplay();

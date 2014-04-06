@@ -32,3 +32,12 @@ test("known tire diameter for miata tires", function() {
 function closeEnough(provided, expected, tolerance, message) {
   ok(provided > expected - tolerance && provided < expected + tolerance, message);
 }
+
+module("inches formatter");
+test("lots of decimals passes", function() {
+  ok(_formatInches(24.591824) == "24.59 in.");
+});
+
+test("no decimals passes", function() {
+  ok(_formatInches(24) == "24 in.");
+});
