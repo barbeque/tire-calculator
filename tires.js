@@ -66,6 +66,20 @@ function getCircumferenceDifference(oldCircumference, newCircumference) {
   return newCircumference / oldCircumference;
 }
 
+function getSpeedoDifference(oldCircumference, newCircumference) {
+  // Revs per mile...
+  // 1 mile = 63360 inches
+  var oldRevsPerMile = 63360 / oldCircumference;
+  var newRevsPerMile = 63360 / newCircumference;
+
+  // At 60mph...
+  var oldRevsAtSixty = oldRevsPerMile * 60;
+  // At the same amount of revs, how much is the speedo reading?
+  var newMilesPerHour = oldRevsAtSixty / newRevsPerMile;
+
+  return newCircumference / oldCircumference;
+}
+
 function _formatDifference(difference) {
   // Expect fractional..
   var d = difference - 1;
@@ -73,7 +87,7 @@ function _formatDifference(difference) {
     return "none";
   }
   // TODO: Ghetto copy and paste here...
-  var percentile = Math.abs(d*100);
+  var percentile = d*100;
   percentile = percentile.toString();
   capped = (percentile.indexOf(".") >= 0) ? percentile.substr(0, percentile.indexOf(".") + 3) : percentile;
   return capped + "%";

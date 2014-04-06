@@ -17,6 +17,7 @@ function calculateAndDisplay() {
   var newValues = _getValues(newTireSize);
 
   newValues.difference = getCircumferenceDifference(oldValues.circumference, newValues.circumference);
+  newValues.speedoDifference = getSpeedoDifference(oldValues.circumference, newValues.circumference);
 
   display(oldValues, newValues);
 }
@@ -30,6 +31,8 @@ function display(oldV, newV) {
   "{{#if difference}}" +
   "<h2>Diameter difference (%)</h2>" +
   "{{formatPercent difference}}" +
+  "<h2>Speedometer difference (%)</h2>" +
+  "{{formatPercent speedoDifference}}" +
   "{{/if}}";
   template = Handlebars.compile(templateSource);
 
