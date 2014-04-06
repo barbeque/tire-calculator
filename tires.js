@@ -91,6 +91,17 @@ function _formatDifference(difference) {
   return capped + "%";
 }
 
+function _formatSpeedo(difference) {
+  var per = _formatDifference(difference);
+  if(difference < 1) {
+    return per + " (reads high)";
+  }
+  else if(difference > 1) {
+    return per + " (reads low)";
+  }
+  return per;
+}
+
 function _cap(input) {
   var stringified = input.toString();
   capped = (stringified.indexOf(".") >= 0) ? stringified.substr(0, stringified.indexOf(".") + 3) : stringified;

@@ -29,10 +29,10 @@ function display(oldV, newV) {
   "<h2>Circumference (inches)</h2>" +
   "<p>{{formatInches circumference}}</p>" +
   "{{#if difference}}" +
-  "<h2>Diameter difference (%)</h2>" +
+  "<h2>Circumference difference (%)</h2>" +
   "{{formatPercent difference}}" +
   "<h2>Speedometer difference (%)</h2>" +
-  "{{formatPercent speedoDifference}}" +
+  "{{formatSpeedo speedoDifference}}" +
   "{{/if}}";
   template = Handlebars.compile(templateSource);
 
@@ -50,6 +50,7 @@ function _getValues(tireSize) {
 
 Handlebars.registerHelper('formatInches', _formatInches);
 Handlebars.registerHelper('formatPercent', _formatDifference);
+Handlebars.registerHelper('formatSpeedo', _formatSpeedo);
 
 $("#goButton").on('click', function(e) {
   calculateAndDisplay();
