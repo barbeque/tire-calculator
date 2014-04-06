@@ -30,7 +30,7 @@ function getDiameterForTireSize(tireSize) {
   return diameter;
 }
 
-function getRollingCircumferenceForTireSize(tireSize) {
+function getCircumferenceForTireSize(tireSize) {
   var diameter = getDiameterForTireSize(tireSize);
   return Math.PI * diameter;
 }
