@@ -1,0 +1,24 @@
+{
+  "name": "tire-calculator",
+  "version": "0.0.1",
+  "description": "Web-based tire size calculator.",
+  "devDependencies": {
+    "grunt": "^0.4.3",
+    "grunt-jsonlint": "^1.0.4",
+    "grunt-cli": "^0.1.13",
+    "grunt-contrib-qunit": "^0.4.0"
+  },
+  "scripts": {
+    "test": "grunt travis --verbose"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/barbeque/tire-calculator.git"
+  },
+  "author": "mike stedman",
+  "license": "CC0",
+  "bugs": {
+    "url": "https://github.com/barbeque/tire-calculator/issues",
+  },
+  "homepage": "https://github.com/barbeque/tire-calculator"
+}
