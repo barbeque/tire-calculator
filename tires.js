@@ -8,7 +8,7 @@ function parseTireSize(input) {
 
   // I know! I'll use REGULAR EXPRESSIONS.
   // Hoo boy here we go.
-  var regex = new RegExp("\D*(\d)+\D*(\d)+\D*(\d)+\D*");
+  var regex = /\D*(\d+)\D*(\d+)\D*(\d+)\D*/g;
   var match = regex.exec(input);
 
   if(!match || match.length != 3) {
