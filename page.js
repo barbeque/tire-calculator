@@ -16,6 +16,8 @@ function calculateAndDisplay() {
   var oldValues = _getValues(originalTireSize);
   var newValues = _getValues(newTireSize);
 
+  newValues.difference = getSpeedoDifference(oldValues.circumference, newValues.circumference);
+
   display(oldValues, newValues);
 }
 
@@ -24,7 +26,11 @@ function display(oldV, newV) {
   "<h2>Diameter (inches)</h2>" +
   "<p>{{formatInches diameter}}</p>" +
   "<h2>Circumference (inches)</h2>" +
-  "<p>{{formatInches circumference}}</p>";
+  "<p>{{formatInches circumference}}</p>" +
+  "{{#if difference}}" +
+  "<h2>Diameter difference (%)</h2>" +
+  "{{formatPercent difference}}" +
+  "{{/if}}";
   template = Handlebars.compile(templateSource);
 
   $(".results").empty();
@@ -40,6 +46,7 @@ function _getValues(tireSize) {
 }
 
 Handlebars.registerHelper('formatInches', _formatInches);
+Handlebars.registerHelper('formatPercent', _formatDifference);
 
 $("#goButton").on('click', function(e) {
   calculateAndDisplay();

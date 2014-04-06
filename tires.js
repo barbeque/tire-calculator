@@ -61,3 +61,20 @@ function _formatInches(inches) {
   capped = (inches.indexOf(".") >= 0) ? inches.substr(0, inches.indexOf(".") + 3) : inches;
   return capped + " in.";
 }
+
+function getSpeedoDifference(oldCircumference, newCircumference) {
+  return newCircumference / oldCircumference;
+}
+
+function _formatDifference(difference) {
+  // Expect fractional..
+  var d = difference - 1;
+  if(d == 0) {
+    return "none";
+  }
+  // TODO: Ghetto copy and paste here...
+  var percentile = Math.abs(d*100);
+  percentile = percentile.toString();
+  capped = (percentile.indexOf(".") >= 0) ? percentile.substr(0, percentile.indexOf(".") + 3) : percentile;
+  return capped + "%";
+}
