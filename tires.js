@@ -3,6 +3,7 @@ function parseTireSize(input) {
   // xxx yy zz
   // or Pxxx yy zz
   // or Pxxx/yy/zz
+  // or xxx yy ZR zz
   // or xxx-yy-zz etc.
 }
 
