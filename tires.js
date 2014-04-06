@@ -57,8 +57,7 @@ function getCircumferenceForTireSize(tireSize) {
 }
 
 function _formatInches(inches) {
-  inches = inches.toString();
-  capped = (inches.indexOf(".") >= 0) ? inches.substr(0, inches.indexOf(".") + 3) : inches;
+  capped = _cap(inches);
   return capped + " in.";
 }
 
@@ -88,7 +87,12 @@ function _formatDifference(difference) {
   }
   // TODO: Ghetto copy and paste here...
   var percentile = d*100;
-  percentile = percentile.toString();
-  capped = (percentile.indexOf(".") >= 0) ? percentile.substr(0, percentile.indexOf(".") + 3) : percentile;
+  capped = _cap(percentile);
   return capped + "%";
+}
+
+function _cap(input) {
+  var stringified = input.toString();
+  capped = (stringified.indexOf(".") >= 0) ? stringified.substr(0, stringified.indexOf(".") + 3) : stringified;
+  return capped;
 }
