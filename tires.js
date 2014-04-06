@@ -5,6 +5,19 @@ function parseTireSize(input) {
   // or Pxxx/yy/zz
   // or xxx yy ZR zz
   // or xxx-yy-zz etc.
+
+  // I know! I'll use REGULAR EXPRESSIONS.
+  // Hoo boy here we go.
+  var regex = new RegExp(".*([0-9]+).*([0-9]+).*([0-9]+).*");
+  var match = regex.exec(input);
+
+  a = match[0];
+  b = match[1];
+  c = match[2];
+
+  alert(a);
+  alert(b);
+  alert(c);
 }
 
 function validateTireSize(tireSize) {

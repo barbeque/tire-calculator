@@ -19,7 +19,7 @@ function calculateAndDisplay() {
   display(oldValues, newValues);
 }
 
-function display(old, new) {
+function display(oldV, newV) {
   var templateSource =
   "<h2>Diameter (inches)</h2>" +
   "<p>{{diameter}}</p>" +
@@ -28,8 +28,8 @@ function display(old, new) {
   template = Handlebars.compile(templateSource);
 
   $("#results").clear();
-  $("#results").append(template(old));
-  $("#results").append(template(new));
+  $("#results").append(template(oldV));
+  $("#results").append(template(newV));
 }
 
 function _getValues(tireSize) {
@@ -38,3 +38,7 @@ function _getValues(tireSize) {
     circumference: getCircumferenceForTireSize(tireSize)
   };
 }
+
+$("#goButton").on('click', function(e) {
+  calculateAndDisplay();
+});
