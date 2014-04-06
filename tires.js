@@ -65,18 +65,19 @@ function getCircumferenceDifference(oldCircumference, newCircumference) {
   return newCircumference / oldCircumference;
 }
 
-function getSpeedoDifference(oldCircumference, newCircumference) {
+function getSpeedoAtOneHundred(oldCircumference, newCircumference) {
   // Revs per mile...
   // 1 mile = 63360 inches
   var oldRevsPerMile = 63360 / oldCircumference;
   var newRevsPerMile = 63360 / newCircumference;
 
   // At 60mph...
-  var oldRevsAtSixty = oldRevsPerMile * 60;
+  var oldRevsAtSixty = oldRevsPerMile * 62.1371;
   // At the same amount of revs, how much is the speedo reading?
   var newMilesPerHour = oldRevsAtSixty / newRevsPerMile;
 
-  return newCircumference / oldCircumference;
+  // Convert to KPH.
+  return (newMilesPerHour / 62.1371) * 100;
 }
 
 function _formatDifference(difference) {
@@ -91,15 +92,9 @@ function _formatDifference(difference) {
   return capped + "%";
 }
 
-function _formatSpeedo(difference) {
-  var per = _formatDifference(difference);
-  if(difference < 1) {
-    return per + " (reads high)";
-  }
-  else if(difference > 1) {
-    return per + " (reads low)";
-  }
-  return per;
+function _formatSpeedo(speedo) {
+  var capped = _cap(speedo);
+  return capped + " km/h";
 }
 
 function _cap(input) {
