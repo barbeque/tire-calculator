@@ -1,7 +1,7 @@
 function calculateAndDisplay() {
   // TODO: just do knockout
-  var originalRaw = $("#originalTireSize").text();
-  var newRaw = $("#newTireSize").text();
+  var originalRaw = $("#originalTireSize").val();
+  var newRaw = $("#newTireSize").val();
 
   var originalTireSize = parseTireSize(originalRaw);
   if(!validateTireSize(originalTireSize)) {

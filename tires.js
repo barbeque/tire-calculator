@@ -11,9 +11,14 @@ function parseTireSize(input) {
   var regex = new RegExp(".*([0-9]+).*([0-9]+).*([0-9]+).*");
   var match = regex.exec(input);
 
-  a = match[0];
-  b = match[1];
-  c = match[2];
+  if(match.length != 3) {
+    // something has gone wrong.
+    return {};
+  }
+
+  a = match[1];
+  b = match[2];
+  c = match[3];
 
   alert(a);
   alert(b);
