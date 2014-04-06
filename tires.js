@@ -65,7 +65,7 @@ function getCircumferenceDifference(oldCircumference, newCircumference) {
   return newCircumference / oldCircumference;
 }
 
-function getSpeedoAtOneHundred(oldCircumference, newCircumference) {
+function getSpeedAtOneHundred(oldCircumference, newCircumference) {
   // Revs per mile...
   // 1 mile = 63360 inches
   var oldRevsPerMile = 63360 / oldCircumference;
@@ -92,7 +92,7 @@ function _formatDifference(difference) {
   return capped + "%";
 }
 
-function _formatSpeedo(speedo) {
+function _formatSpeed(speedo) {
   var capped = _cap(speedo);
   return capped + " km/h";
 }

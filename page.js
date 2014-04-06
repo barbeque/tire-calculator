@@ -17,7 +17,7 @@ function calculateAndDisplay() {
   var newValues = _getValues(newTireSize);
 
   newValues.difference = getCircumferenceDifference(oldValues.circumference, newValues.circumference);
-  newValues.speedoAtOneHundred = getSpeedoAtOneHundred(oldValues.circumference, newValues.circumference);
+  newValues.speedAtOneHundred = getSpeedAtOneHundred(oldValues.circumference, newValues.circumference);
 
   display(oldValues, newValues);
 }
@@ -31,8 +31,8 @@ function display(oldV, newV) {
   "{{#if difference}}" +
   "<h2>Circumference difference (%)</h2>" +
   "{{formatPercent difference}}" +
-  "<h2>Speedometer at 100kph</h2>" +
-  "{{formatSpeedo speedoAtOneHundred}}" +
+  "<h2>Road Speed at Indicated 100kph</h2>" +
+  "{{formatSpeed speedAtOneHundred}}" +
   "{{/if}}";
   template = Handlebars.compile(templateSource);
 
@@ -50,7 +50,7 @@ function _getValues(tireSize) {
 
 Handlebars.registerHelper('formatInches', _formatInches);
 Handlebars.registerHelper('formatPercent', _formatDifference);
-Handlebars.registerHelper('formatSpeedo', _formatSpeedo);
+Handlebars.registerHelper('formatSpeed', _formatSpeed);
 
 $("#goButton").on('click', function(e) {
   calculateAndDisplay();
