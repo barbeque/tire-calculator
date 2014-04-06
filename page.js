@@ -27,9 +27,9 @@ function display(oldV, newV) {
   "<p>{{circumference}}</p>";
   template = Handlebars.compile(templateSource);
 
-  $("#results").clear();
-  $("#results").append(template(oldV));
-  $("#results").append(template(newV));
+  $(".results").empty();
+  $("#originalResults").append(template(oldV));
+  $("#newResults").append(template(newV));
 }
 
 function _getValues(tireSize) {
