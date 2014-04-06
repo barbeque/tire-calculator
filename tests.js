@@ -10,8 +10,8 @@ test("exhaustive freetext test", function() {
     '   225    45    - 17'
   ];
   for(var c in codes) {
-    var determined = parseTireSize(codes);
-    ok(validateTireSize(determined), 'Returned tire code for ' + c + ' failed validation.');
+    var determined = parseTireSize(codes[c]);
+    ok(validateTireSize(determined), 'Returned tire code for "' + codes[c] + '" failed validation.');
     ok(determined.wheelDiameter == 17, 'Wheel diameter should have been 17 but was ' + determined.wheelDiameter);
     ok(determined.profile == 45, 'Profile should have been 45 but was ' + determined.profile);
     ok(determined.width == 225, 'Tire width should have been 225 but was ' + determined.width);
