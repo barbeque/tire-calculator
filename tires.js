@@ -8,32 +8,34 @@ function parseTireSize(input) {
 
   // I know! I'll use REGULAR EXPRESSIONS.
   // Hoo boy here we go.
-  var regex = new RegExp(".*([0-9]+).*([0-9]+).*([0-9]+).*");
+  var regex = new RegExp("\D*(\d)+\D*(\d)+\D*(\d)+\D*");
   var match = regex.exec(input);
 
-  if(match.length != 3) {
+  if(!match || match.length != 3) {
     // something has gone wrong.
     return {};
   }
 
-  a = match[1];
-  b = match[2];
-  c = match[3];
+  a = parseInt(match[1]);
+  b = parseInt(match[2]);
+  c = parseInt(match[3]);
 
-  alert(a);
-  alert(b);
-  alert(c);
+  return {
+    width: a,
+    profile: b,
+    wheelDiameter: c
+  };
 }
 
 function validateTireSize(tireSize) {
   // Minimum sizes pulled out of thin air
-  if(!tireSize.wheelDiameter || tireSize.wheelDiameter < 3) {
+  if(!tireSize.wheelDiameter || isNaN(tireSize.wheelDiameter) || tireSize.wheelDiameter < 3) {
     return false;
   }
-  if(!tireSize.profile || tireSize.profile <= 10) {
+  if(!tireSize.profile || isNaN(tireSize.profile) || tireSize.profile <= 10) {
     return false;
   }
-  if(!tireSize.width || tireSize.width < 80) {
+  if(!tireSize.width || isNaN(tireSize.width) || tireSize.width < 80) {
     return false;
   }
 
