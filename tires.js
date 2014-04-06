@@ -62,7 +62,7 @@ function _formatInches(inches) {
   return capped + " in.";
 }
 
-function getSpeedoDifference(oldCircumference, newCircumference) {
+function getCircumferenceDifference(oldCircumference, newCircumference) {
   return newCircumference / oldCircumference;
 }
 

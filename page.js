@@ -16,7 +16,7 @@ function calculateAndDisplay() {
   var oldValues = _getValues(originalTireSize);
   var newValues = _getValues(newTireSize);
 
-  newValues.difference = getSpeedoDifference(oldValues.circumference, newValues.circumference);
+  newValues.difference = getCircumferenceDifference(oldValues.circumference, newValues.circumference);
 
   display(oldValues, newValues);
 }
