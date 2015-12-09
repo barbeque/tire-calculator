@@ -48,7 +48,8 @@ function _loadCarList() {
     { text: "92 Honda Civic", value: "175 70 13" },
     { text: "97 Mazda Miata", value: "185 60 14" },
     { text: "03 Subaru Impreza", value: "195 60 15"},
-    { text: "03 Subaru WRX", value: "205 55 16" }
+    { text: "02-05 Subaru WRX", value: "205 55 16" },
+    { text: "06-07 Subaru WRX", value: "215 45 17" }
   ];
 
   l = $("#carList")
@@ -81,6 +82,11 @@ function _getValues(tireSize) {
   };
 }
 
+function _enterWasPressed(ev) {
+  var key = ev.keyCode ? ev.keyCode : ev.which;
+  return key == 13;
+}
+
 Handlebars.registerHelper('formatInches', _formatInches);
 Handlebars.registerHelper('formatPercent', _formatDifference);
 Handlebars.registerHelper('formatSpeed', _formatSpeed);
@@ -97,5 +103,18 @@ $("#carList").change(function(c) {
     // Prefill the current tire size
     selectedValue = $("#carList option:selected")[0].value;
     $("#originalTireSize").val(selectedValue);
+  }
+});
+
+$("#originalTireSize").keydown(function(ev) {
+  if(_enterWasPressed(ev)) {
+    $("#newTireSize").focus();
+    $("#newTireSize").select();
+  }
+});
+
+$("#newTireSize").keydown(function(ev) {
+  if(_enterWasPressed(ev)) {
+    $("#goButton").click();
   }
 });
