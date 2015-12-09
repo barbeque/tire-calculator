@@ -1,16 +1,18 @@
 function calculateAndDisplay() {
   // TODO: just do knockout
+  _resetOops();
+
   var originalRaw = $("#originalTireSize").val();
   var newRaw = $("#newTireSize").val();
 
   var originalTireSize = parseTireSize(originalRaw);
   if(!validateTireSize(originalTireSize)) {
-    // TODO: Fail validation somehow.
+    _oops("#originalTireSize"); return;
   }
 
   var newTireSize = parseTireSize(newRaw);
   if(!validateTireSize(newTireSize)) {
-    // TODO: Fail validation somehow.
+    _oops("#newTireSize"); return;
   }
 
   var oldValues = _getValues(originalTireSize);
@@ -59,6 +61,16 @@ function _loadCarList() {
 
   $.each(cars, function(index, carChoice) {
     l.append($("<option/>", carChoice))
+  });
+}
+
+function _oops(who) {
+  $(who).parent().addClass("has-error");
+}
+
+function _resetOops() {
+  $("#newTireSize,#originalTireSize").each(function() {
+    $(this).parent().removeClass("has-error");
   });
 }
 
