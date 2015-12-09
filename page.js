@@ -54,7 +54,7 @@ function _loadCarList() {
   l.html('');
   l.append($("<option/>", {
     text: "predefined cars...",
-    value: null
+    value: ""
   }));
 
   $.each(cars, function(index, carChoice) {
