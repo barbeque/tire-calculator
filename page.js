@@ -41,6 +41,27 @@ function display(oldV, newV) {
   $("#newResults").append(template(newV));
 }
 
+function _loadCarList() {
+  cars = [
+    { text: "92 Honda Civic", value: "175 70 13" },
+    { text: "97 Mazda Miata", value: "185 60 14" },
+    { text: "03 Subaru Impreza", value: "195 60 15"},
+    { text: "03 Subaru WRX", value: "205 55 16" }
+  ];
+
+  l = $("#carList")
+
+  l.html('');
+  l.append($("<option/>", {
+    text: "predefined cars...",
+    value: null
+  }));
+
+  $.each(cars, function(index, carChoice) {
+    l.append($("<option/>", carChoice))
+  });
+}
+
 function _getValues(tireSize) {
   return {
     diameter: getDiameterForTireSize(tireSize),
@@ -54,4 +75,15 @@ Handlebars.registerHelper('formatSpeed', _formatSpeed);
 
 $("#goButton").on('click', function(e) {
   calculateAndDisplay();
+});
+
+_loadCarList();
+
+$("#carList").change(function(c) {
+  selectedValues = $("#carList option:selected");
+  if(selectedValues.length > 0) {
+    // Prefill the current tire size
+    selectedValue = $("#carList option:selected")[0].value;
+    $("#originalTireSize").val(selectedValue);
+  }
 });

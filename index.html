@@ -12,7 +12,7 @@
         <div class="col-xs-5">
           <form class="form-horizontal" onsubmit="return false;">
             <div class="form-group">
-              <label for="originalTireSize">Original Tire Size</label>
+              <label for="originalTireSize">Original Tire Size <select id="carList"/></label>
               <input class="form-control" id="originalTireSize" placeholder="195 75 14" value="195 75 14"></input>
             </div>
           </form>
@@ -27,7 +27,6 @@
         </div>
       </div>
       <div class="row">
-        <!-- Centered huge button here? -->
         <button type="button" class="btn btn-primary btn-lg btn-block" id="goButton">Compare</button>
       </div>
       <div id="results" class="row">
