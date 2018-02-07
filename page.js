@@ -49,7 +49,9 @@ function _loadCarList() {
     { text: "97 Mazda Miata", value: "185 60 14" },
     { text: "03 Subaru Impreza", value: "195 60 15"},
     { text: "02-05 Subaru WRX", value: "205 55 16" },
+    { text: "05-07 Subaru WRX STI", value: "225 45 17" },
     { text: "06-07 Subaru WRX", value: "215 45 17" },
+    { text: "04-08 Subaru Forester XT", value: "215 65 16" },
     { text: "81-89 Lincoln Town Car", value: "215 70 15" }
   ];
 
