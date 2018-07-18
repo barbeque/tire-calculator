@@ -45,6 +45,7 @@ function display(oldV, newV) {
 
 function _loadCarList() {
   cars = [
+    { text: "82 Toyota Supra (P-Type)", value: "225 60 14" },
     { text: "92 Honda Civic", value: "175 70 13" },
     { text: "97 Mazda Miata", value: "185 60 14" },
     { text: "03 Subaru Impreza", value: "195 60 15"},
