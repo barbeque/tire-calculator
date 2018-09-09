@@ -1,4 +1,9 @@
 language: node_js
+# Explicitly allow gh-pages, otherwise blocked
+branches:
+  only:
+  - gh-pages
+  - /.*/
 node_js:
   - "0.10"
   - "0.8"
