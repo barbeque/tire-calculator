@@ -5,9 +5,8 @@ branches:
   - gh-pages
   - /.*/
 node_js:
-  - "0.10"
-  - "0.8"
-  - "0.6"
+  - "9"
+  - "8"
 install:
   - npm install
 script:
