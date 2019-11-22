@@ -53,7 +53,8 @@ function _loadCarList() {
     { text: "05-07 Subaru WRX STI", value: "225 45 17" },
     { text: "06-07 Subaru WRX", value: "215 45 17" },
     { text: "04-08 Forester XT", value: "215 65 16" },
-    { text: "81-89 Lincoln Town Car", value: "215 70 15" }
+    { text: "81-89 Lincoln Town Car", value: "215 70 15" },
+    { text: "04 Acura TSX", value: "215 55 17" }
   ];
 
   l = $("#carList")
