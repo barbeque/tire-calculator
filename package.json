@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Web-based tire size calculator.",
   "devDependencies": {
-    "grunt": "^1.4.0",
+    "grunt": "^1.5.3",
     "grunt-cli": "^1.4.2",
     "grunt-contrib-qunit": "^4.0.0",
     "grunt-jsonlint": "^2.1.3"
